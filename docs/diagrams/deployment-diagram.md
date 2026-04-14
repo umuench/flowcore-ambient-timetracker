@@ -2,14 +2,12 @@
 
 ```mermaid
 flowchart TB
-    UserPC[User Windows Device\nFlowCore.Client] --> Internet[(Corporate Network)]
-    AdminPC[HR/Admin Device\nFlowCore.Admin] --> Internet
+    UserPC[User Windows Device<br/>FlowCore.Client] --> Internet[(Corporate Network)]
+    AdminPC[HR/Admin Device<br/>FlowCore.Admin] --> Internet
 
-    Internet --> ApiHost[App Host\nFlowCore.Api + SignalR Hub]
+    Internet --> ApiHost[App Host<br/>FlowCore.Api + SignalR Hub]
 
-    ApiHost --> Config[Configuration\nappsettings + env vars]
+    ApiHost --> Config[Configuration<br/>appsettings + env vars]
     ApiHost --> LogSink[Central Logging / SIEM]
-    ApiHost --> AuditStore[AuditTrailStore\n(persistenznah, aktuell in-memory baseline)]
-
-    ApiHost --> Repo[Workday/Approval Repository\n(in-memory baseline, später DB)]
-```
+    ApiHost --> AuditStore[AuditTrailStore<br/>In-memory baseline, later persistent]
+    ApiHost --> Repo[Workday and Approval Repository<br/>In-memory baseline, later database]

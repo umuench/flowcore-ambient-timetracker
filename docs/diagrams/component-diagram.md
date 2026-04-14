@@ -3,16 +3,16 @@
 ```mermaid
 flowchart LR
     subgraph ClientSide[Windows Client]
-        ClientShell[FlowCore.Client\nDormant/Compact/Focus]
-        LocalState[Local State Machine\nOffline Queue]
+        ClientShell[FlowCore.Client<br/>Dormant/Compact/Focus]
+        LocalState[Local State Machine<br/>Offline Queue]
     end
 
     subgraph Backend[FlowCore Backend]
-        Api[FlowCore.Api\nREST Fallback + Admin]
-        Hub[FlowCore.SignalR\nPresenceHub]
-        App[FlowCore.Application\nUse Cases]
-        Domain[FlowCore.Domain\nPolicies + Workday]
-        Infra[FlowCore.Infrastructure\nRepos, Options, Audit Store]
+        Api[FlowCore.Api<br/>REST Fallback + Admin]
+        Hub[FlowCore.SignalR<br/>PresenceHub]
+        App[FlowCore.Application<br/>Use Cases]
+        Domain[FlowCore.Domain<br/>Policies + Workday]
+        Infra[FlowCore.Infrastructure<br/>Repos, Options, Audit Store]
     end
 
     subgraph AdminViews[Admin/HR]
@@ -28,4 +28,3 @@ flowchart LR
     Hub --> ClientShell
     Hub --> AdminUI
     Api --> AdminUI
-```
