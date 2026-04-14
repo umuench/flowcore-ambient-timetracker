@@ -51,6 +51,19 @@ public sealed class Workday
     }
 
     /// <summary>
+    /// Fügt einen vorhandenen Zeiteintrag mit stabiler Identität hinzu (Rehydration aus Persistenz).
+    /// </summary>
+    public void RehydrateEntry(Guid entryId, PresenceState state, DateTimeOffset timestamp, ActivityContext? activityContext = null, string? note = null)
+    {
+        if (_entries.Any(x => x.Id == entryId))
+        {
+            return;
+        }
+
+        _entries.Add(new TimeEntry(entryId, EmployeeId, state, timestamp, activityContext, note));
+    }
+
+    /// <summary>
     /// Korrigiert einen Eintrag, wenn die Policy dies erlaubt.
     /// </summary>
     public bool CorrectEntry(Guid entryId, DateTimeOffset correctedTimestamp, DateTimeOffset now, CorrectionWindowPolicy policy)

@@ -24,6 +24,7 @@ Projektbasis bis inkl. Meilenstein `01` bis `07` ist umgesetzt:
 - `.slnx` als Solution-Format
 - SignalR + REST
 - Offline-first Reconciliation-Ansatz
+- Persistenzmodus: `InMemory` oder `PostgreSql`
 
 ## Projektstruktur
 ```text
@@ -64,6 +65,13 @@ dotnet run --project src/FlowCore.Api/FlowCore.Api.csproj
 dotnet test FlowCore.slnx --no-build
 ```
 
+### PostgreSQL aktivieren
+1. PostgreSQL bereitstellen.
+2. `src/FlowCore.Api/appsettings.json` anpassen:
+   - `Persistence:Provider = PostgreSql`
+   - `ConnectionStrings:FlowCore` auf deine Instanz setzen
+3. API starten. Bei `EnsureCreatedOnStartup=true` wird das Schema automatisch erstellt.
+
 ### Wichtige Endpunkte
 - `GET /health`
 - `GET /api/statuses`
@@ -78,6 +86,7 @@ dotnet test FlowCore.slnx --no-build
 - Architektur: `docs/architecture/`
 - API: `docs/api/api-overview.md`
 - Betrieb: `docs/operations/`
+- PostgreSQL Setup: `docs/operations/postgresql-setup.md`
 - Projektreview: `docs/operations/project-review.md`
 - ADRs: `docs/adr/`
 - Diagramme: `docs/diagrams/`

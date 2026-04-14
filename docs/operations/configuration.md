@@ -2,6 +2,14 @@
 
 ## appsettings Sections
 
+### `ConnectionStrings`
+- `FlowCore`: PostgreSQL-Verbindungszeichenfolge (wenn `Persistence:Provider=PostgreSql`).
+
+### `Persistence`
+- `Provider`: `InMemory` oder `PostgreSql`
+- `ConnectionStringName`: Name aus `ConnectionStrings`
+- `EnsureCreatedOnStartup`: erstellt Schema beim Start automatisch (PostgreSql)
+
 ### `OfflineSync`
 - `MaxQueueLength`: Maximale lokale Queue-Länge im Client-Sync-Pfad.
 

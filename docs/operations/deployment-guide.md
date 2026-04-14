@@ -1,16 +1,19 @@
 # Deployment Guide
 
 ## Ziel
-Reproduzierbare Auslieferung von `FlowCore.Api`, SignalR-Hub-Funktionalität und Client-Binaries.
+Reproduzierbare Auslieferung von `FlowCore.Api`, SignalR-Hub-Funktionalität, PostgreSQL-Persistenz und Client-Binaries.
 
 ## Deployment-Strategie
 1. Build + automatisierte Tests erfolgreich.
-2. Release-Artefakte versionieren (API, Client, Admin).
-3. API/HUB in Staging deployen.
-4. Smoke Tests (`/health`, zentrale API-Endpunkte, Hub-Verbindung).
-5. Freigabe für Produktion.
+2. PostgreSQL-Instanz und Zugangsdaten bereitstellen.
+3. `ConnectionStrings:FlowCore` und `Persistence` konfigurieren.
+4. API/HUB in Staging deployen.
+5. Smoke Tests (`/health`, zentrale API-Endpunkte, Hub-Verbindung).
+6. Freigabe für Produktion.
 
 ## Checkpoints vor Go-Live
+- `Persistence:Provider=PostgreSql` gesetzt.
+- Verbindung zur PostgreSQL-Instanz erfolgreich.
 - Konfiguration für `OfflineSync`, `RealtimeSync`, `Reconciliation` gesetzt.
 - Rollenmodell für Admin-Schnitt verifiziert.
 - Logging-Sink und Alarmierung verbunden.

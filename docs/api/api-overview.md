@@ -4,6 +4,7 @@
 - REST API für Persistenz, Queries, Admin-Abläufe und Realtime-Fallback
 - SignalR Hub `/hubs/presence` als Realtime-Rückgrat
 - Reconciliation über Offline-Queue-Replay (siehe `docs/architecture/realtime-and-sync.md`)
+- Persistenzmodus über Konfiguration wählbar (`InMemory` oder `PostgreSql`)
 
 ## Core Endpoints
 | Methode | Route | Zweck | Erwarteter Erfolg |

@@ -8,6 +8,7 @@ using FlowCore.Contracts.Realtime;
 using FlowCore.Contracts.Workdays;
 using FlowCore.Domain;
 using FlowCore.Infrastructure;
+using FlowCore.Infrastructure.Persistence;
 using FlowCore.Infrastructure.Services;
 using FlowCore.SignalR;
 
@@ -21,6 +22,8 @@ builder.Services.AddScoped<WorkdayApplicationService>();
 builder.Services.AddScoped<IDomainEventPublisher, SignalRDomainEventPublisher>();
 
 var app = builder.Build();
+
+await FlowCoreDatabaseInitializer.InitializeAsync(app.Services);
 
 if (app.Environment.IsDevelopment())
 {
