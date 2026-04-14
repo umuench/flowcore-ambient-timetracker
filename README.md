@@ -78,6 +78,7 @@ dotnet test FlowCore.slnx --no-build
 - Architektur: `docs/architecture/`
 - API: `docs/api/api-overview.md`
 - Betrieb: `docs/operations/`
+- Projektreview: `docs/operations/project-review.md`
 - ADRs: `docs/adr/`
 - Diagramme: `docs/diagrams/`
 
