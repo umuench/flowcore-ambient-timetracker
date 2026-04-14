@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: FlowCore Operations Contact
+    url: https://example.invalid/flowcore-ops
+    about: Nutze den definierten Betriebsweg für produktive Incidents.

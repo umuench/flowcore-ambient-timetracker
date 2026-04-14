@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <AssemblyName>FlowCore.Api</AssemblyName>
+    <RootNamespace>FlowCore.Api</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FlowCore.Application\FlowCore.Application.csproj" />
+    <ProjectReference Include="..\FlowCore.Infrastructure\FlowCore.Infrastructure.csproj" />
+    <ProjectReference Include="..\FlowCore.Contracts\FlowCore.Contracts.csproj" />
+    <ProjectReference Include="..\FlowCore.SignalR\FlowCore.SignalR.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+  </ItemGroup>
+</Project>

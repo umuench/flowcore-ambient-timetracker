@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>FlowCore.Contracts</AssemblyName>
+    <RootNamespace>FlowCore.Contracts</RootNamespace>
+  </PropertyGroup>
+</Project>

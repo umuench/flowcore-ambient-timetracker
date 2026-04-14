@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>FlowCore.Domain</AssemblyName>
+    <RootNamespace>FlowCore.Domain</RootNamespace>
+  </PropertyGroup>
+</Project>

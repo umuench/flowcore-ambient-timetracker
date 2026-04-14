@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>FlowCore.Application</AssemblyName>
+    <RootNamespace>FlowCore.Application</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FlowCore.Domain\FlowCore.Domain.csproj" />
+    <ProjectReference Include="..\FlowCore.Contracts\FlowCore.Contracts.csproj" />
+  </ItemGroup>
+</Project>
