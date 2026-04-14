@@ -2,11 +2,28 @@
 
 FlowCore ist eine Windows-first Ambient-Arbeitszeiterfassung für moderne IT-Teams.
 
-## Technischer Stand (Meilenstein 02)
-- `.slnx`-Solution: `FlowCore.slnx`
-- Schichten: `Domain`, `Application`, `Infrastructure`, `Contracts`, `Api`, `SignalR`, `Client`, `Admin`
-- Testprojekte: Domain, Application, Infrastructure, API, Architektur
-- Zentrale Build- und Package-Konfiguration vorhanden
+Das Produkt wird als **eine Anwendung mit mehreren Erscheinungsformen** umgesetzt:
+- `Dormant`
+- `Compact`
+- `Focus`
+
+## Aktueller Stand
+Projektbasis bis inkl. Meilenstein `01` bis `07` ist umgesetzt:
+- Produkt-/Scrum-Artefakte
+- Clean-Architecture-Solution mit `FlowCore.slnx`
+- Domain- und Application-Kernlogik
+- API + SignalR + Realtime-Events + REST-Fallback
+- Client-UI-State-Machine-Grundgerüst
+- Qualitäts-, Test- und Betriebsdokumentation
+- GitHub Delivery-Basis (PR-/Issue-Templates, CI-Workflow, Copilot-Instructions)
+
+## Technischer Stack
+- Visual Studio 2026
+- C# 14
+- .NET 10
+- `.slnx` als Solution-Format
+- SignalR + REST
+- Offline-first Reconciliation-Ansatz
 
 ## Projektstruktur
 ```text
@@ -35,16 +52,45 @@ docs/
   operations/
 ```
 
-## Architekturprinzipien
-- Clean Architecture mit klaren Abhängigkeitsgrenzen
-- Explizite Modelle für Zeitbuchung und Status
-- Realtime via SignalR, Persistenz/Abfragen via API
-- Offline-first als lokale Zustandsmaschine (ADR)
+## Schnellstart
+### API lokal starten
+```bash
+dotnet build FlowCore.slnx
+dotnet run --project src/FlowCore.Api/FlowCore.Api.csproj
+```
 
-## Build und Test
-In Visual Studio die `FlowCore.slnx` öffnen und Build/Test ausführen.
+### Lokale Prüfungen
+```bash
+dotnet test FlowCore.slnx --no-build
+```
 
-## Nächste Schritte
-- Meilenstein 03: Domain- und Application-Logik vertiefen
-- Meilenstein 04: Ambient-Presence-UX im Client aufbauen
-- Meilenstein 05: Persistenz, Auth, Realtime-Details und Admin vertiefen
+### Wichtige Endpunkte
+- `GET /health`
+- `GET /api/statuses`
+- `POST /api/presence/*`
+- `POST /api/workdays/correct`
+- `GET /api/admin/live-status`
+- `GET /api/admin/audit`
+- SignalR Hub: `/hubs/presence`
+
+## Dokumentationsindex
+- Produkt: `docs/product/`
+- Architektur: `docs/architecture/`
+- API: `docs/api/api-overview.md`
+- Betrieb: `docs/operations/`
+- ADRs: `docs/adr/`
+- Diagramme: `docs/diagrams/`
+
+## Qualität
+- XML-Dokumentationskommentare für öffentliche APIs
+- Unit-, API- und Architekturtests
+- Deterministische Zeitabhängigkeiten über `IClock`/Abstraktionen
+
+## Delivery / GitHub
+- CI: `.github/workflows/ci.yml`
+- PR-Template: `.github/PULL_REQUEST_TEMPLATE.md`
+- Issue-Templates: `.github/ISSUE_TEMPLATE/`
+- Copilot Instructions: `.github/copilot-instructions.md` und `.github/instructions/`
+
+## Hinweise zum Reifegrad
+Aktuell liegt eine **abnahmefähige Projektbasis** mit Baseline-Implementierungen vor. Für produktiven Rollout sind insbesondere persistente Speicherung, vollständige Authentifizierung/Autorisierung und Last-/Resilienz-Härtung als nächste Schritte vorgesehen (siehe `docs/product/residual-risks-and-followup.md`).

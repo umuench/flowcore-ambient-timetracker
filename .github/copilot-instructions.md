@@ -72,6 +72,7 @@ This repository contains a production-oriented Windows-first ambient time tracki
   - diagrams
 - Documentation should be understandable by developers, product stakeholders, and a fictional customer acceptance audience.
 - Actively consider documentation responsibilities at each milestone and deliver consistent documentation.
+- Regularly update central documentation files like README.md to ensure they are not left in an initial state.
 
 ## Delivery mindset
 - Produce code and documentation as if this repository could be handed to a customer for acceptance and go-live preparation.
